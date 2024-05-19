@@ -5,7 +5,7 @@ LIBFT = libft
 AR = ar
 OPT = -rcs
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
@@ -18,7 +18,7 @@ libft.a :
 	make -C libft
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@ -I ./includes -L$(LIBFT) -l$(LIBFT)
+	$(CC) $(CFLAGS) -c $< -o $@ -I ./includes
 
 clean:
 	make clean -C libft
