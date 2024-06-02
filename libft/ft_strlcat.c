@@ -6,7 +6,7 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:23:45 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:52:44 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:33:56 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	src_len;
 	size_t	n;
 
+	if (!dest && size == 0)
+		return (size);
 	n = 0;
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);

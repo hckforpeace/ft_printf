@@ -6,7 +6,7 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:24:02 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:52:57 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:24:02 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ptr = (char *)malloc(sizeof(char) * (len + 1));
 	if (ptr == NULL)
 		return (NULL);
-	bzero(ptr, len + 1);
+	ft_bzero(ptr, len + 1);
 	while (s[n])
 	{
 		ptr[n] = (*f)(n, s[n]);

@@ -6,11 +6,11 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:02:51 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/09 18:17:00 by pierre           ###   ########.fr       */
+/*   Updated: 2024/06/02 19:08:59 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {
@@ -18,6 +18,8 @@ int	ft_printf(const char *str, ...)
 	int		ret;
 
 	ret = 0;
+	if (!str)
+		return (-1);
 	va_start(valist, str);
 	if (str)
 		ret = displayer(str, valist);

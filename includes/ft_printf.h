@@ -6,12 +6,12 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 02:13:14 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/09 18:14:34 by pierre           ###   ########.fr       */
+/*   Updated: 2024/06/02 19:20:56 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_BONUS_H
+# define FT_PRINTF_BONUS_H
 
 # include "libft.h"
 # include <stdarg.h>

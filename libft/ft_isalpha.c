@@ -6,7 +6,7 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:20:57 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:50:21 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:26:07 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	ft_isalpha(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char)c;
-	if ((uc >= 'a' && uc <= 'z') || (uc >= 'A' && uc <= 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
 }

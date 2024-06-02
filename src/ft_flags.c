@@ -6,11 +6,11 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:54:06 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/09 18:12:14 by pierre           ###   ########.fr       */
+/*   Updated: 2024/06/02 19:12:14 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	disp_padding(t_disp data, int padding, int is_neg)
 {

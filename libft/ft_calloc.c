@@ -6,7 +6,7 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:20:43 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:50:10 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:25:51 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		size = 1;
 		nmemb = 1;
 	}
-	if (size > 2147483647 || nmemb > 2147483647)
+	if (size > 2147483647 || nmemb > 2147483647 || size * nmemb > 2147483647)
 		return (NULL);
 	ptr = malloc(size * nmemb);
 	if (ptr == NULL)

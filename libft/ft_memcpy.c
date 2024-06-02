@@ -6,7 +6,7 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 16:47:30 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:51:44 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:29:28 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	dst = (unsigned char *)dest;
 	sr = (const unsigned char *)src;
 	i = 0;
+	if (!dest && !src)
+		return (NULL);
 	while (i < n)
 	{
 		dst[i] = sr[i];

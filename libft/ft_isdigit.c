@@ -6,7 +6,7 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:21:13 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:50:33 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:21:13 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char)c;
-	if (uc >= '0' && uc <= '9')
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
-}
+}	

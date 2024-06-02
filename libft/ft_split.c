@@ -6,13 +6,13 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:22:57 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:52:08 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:31:38 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int	ft_count_words(char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
 	int	n;
 	int	words;
@@ -36,14 +36,32 @@ int	ft_count_words(char const *s, char c)
 	return (words);
 }
 
-int	alloc(int idx_ptr, int size, char const *s, char **strs)
+static void	ft_crash_free(char **strs, int to_free)
+{
+	if (to_free < 0)
+	{
+		free(strs);
+		return ;
+	}
+	while (to_free >= 0)
+	{
+		free(strs[to_free]);
+		to_free--;
+	}
+	free(strs);
+}
+
+static int	ft_alloc(int idx_ptr, int size, char const *s, char **strs)
 {
 	int	n;
 
 	n = 0;
 	strs[idx_ptr] = (char *)malloc(sizeof(char) * (size + 1));
-	if (strs[idx_ptr] == NULL)
+	if (strs[idx_ptr] == NULL || 1)
+	{
+		ft_crash_free(strs, idx_ptr - 1);
 		return (0);
+	}
 	while (n < size)
 	{
 		strs[idx_ptr][n] = s[n];
@@ -53,7 +71,7 @@ int	alloc(int idx_ptr, int size, char const *s, char **strs)
 	return (1);
 }
 
-void	ft_alloc_words(char const *s, char c, char **strs)
+static int	ft_alloc_words(char const *s, char c, char **strs)
 {
 	int	idx_ptr;
 	int	n;
@@ -66,7 +84,8 @@ void	ft_alloc_words(char const *s, char c, char **strs)
 	{
 		if (n != 0 && s[n] == c && s[n - 1] != c)
 		{
-			alloc(idx_ptr, len, &s[n - len], strs);
+			if (!ft_alloc(idx_ptr, len, &s[n - len], strs))
+				return (0);
 			idx_ptr++;
 			len = 0;
 		}
@@ -75,20 +94,25 @@ void	ft_alloc_words(char const *s, char c, char **strs)
 		n++;
 	}
 	if (s[n - 1] != c)
-		alloc(idx_ptr, len, &s[n - len], strs);
+		return (ft_alloc(idx_ptr, len, &s[n - len], strs));
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 	int		words;
+	int		ret;
 
+	ret = 1;
 	words = ft_count_words(s, c);
 	strs = (char **)malloc(sizeof(char *) * (words + 1));
 	if (strs == NULL)
 		return (NULL);
 	if (words != 0)
-		ft_alloc_words(s, c, strs);
+		ret = ft_alloc_words(s, c, strs);
+	if (!ret)
+		return (NULL);
 	strs[words] = 0;
 	return (strs);
 }

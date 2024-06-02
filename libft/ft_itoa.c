@@ -6,13 +6,13 @@
 /*   By: pierre <pierre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 00:21:23 by pierre            #+#    #+#             */
-/*   Updated: 2024/05/02 14:50:42 by pierre           ###   ########.fr       */
+/*   Updated: 2024/04/15 00:26:41 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int	count_chars(long n)
+static int	ft_count_chars(long n)
 {
 	int	len;
 
@@ -37,12 +37,12 @@ char	*ft_itoa(int n)
 	int		len;
 	long	num;
 
-	len = count_chars((long)n);
+	len = ft_count_chars((long)n);
 	num = n;
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	bzero(str, len + 1);
+	ft_bzero(str, len + 1);
 	len--;
 	if (num < 0)
 	{
